@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Breathing Exercise</title>
+<link rel="icon" href="icon.svg">
+<link rel="stylesheet" href="base.css">
+<style>
+  .stage{display:flex;align-items:center;justify-content:center;height:20rem;margin:1rem 0}
+  .circle{width:6rem;height:6rem;border-radius:50%;background:radial-gradient(circle at 35% 35%,#bcd6ff,#2463b3);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.1rem;text-align:center;box-shadow:0 0 0 0 rgba(36,99,179,.25)}
+  .patterns{display:flex;flex-wrap:wrap;gap:.35rem;margin:.75rem 0}
+  .patterns button[aria-pressed="true"]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+  .count{font-size:1.1rem;color:var(--muted);text-align:center;font-variant-numeric:tabular-nums}
+  @media (prefers-reduced-motion:reduce){.circle{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <h1>Breathing Exercise</h1>
+  <p class="sub">Follow the circle: breathe in as it grows, hold, and breathe out as it shrinks.</p>
+  <div class="patterns" id="patterns" role="group" aria-label="Pattern"></div>
+  <div class="row">
+    <label for="mins">Minutes</label>
+    <select id="mins"><option>1</option><option selected>3</option><option>5</option><option>10</option></select>
+    <button id="go" class="primary">Start</button>
+  </div>
+  <div class="stage"><div class="circle" id="circle" aria-live="polite">Ready</div></div>
+  <p class="count" id="count"></p>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
